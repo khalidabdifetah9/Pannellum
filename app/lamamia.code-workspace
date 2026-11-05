@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"name": "lamamia",
+			"path": ".."
+		},
+		{
+			"name": "Component",
+			"path": "../../../NEXT_JS/Component"
+		}
+	],
+	"settings": {}
+}
