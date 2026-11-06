@@ -16,10 +16,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`min-h-full flex pt-20 flex-col ${poppins.className}`}>
+      <body className={`min-h-full flex flex-col ${poppins.className}`}>
         <AuthProvider>
           <div className="w-full mx-auto  max-w-470">
-            <Nav />
+            {/* <Nav /> */}
             {children}
             </div>
         </AuthProvider>

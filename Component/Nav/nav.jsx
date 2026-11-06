@@ -11,6 +11,7 @@ const links = [
   { name: "Contacts", id: 2, ref: "/contacts" },
   { name: "Dashboard", id: 3, ref: "/dashboard" },
   { name: "Portfolio", id: 4, ref: "/portfolio" },
+  { name: "Pannellum", id: 4, ref: "/Pannellum" },
 ];
 const Nav = () => {
   const [Id, setId] = useState(null);
