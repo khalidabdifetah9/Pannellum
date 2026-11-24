@@ -1,19 +1,23 @@
 "use client";
 import React, { useState } from "react";
-
+import { sendMessageToGemini } from "../../app/actions/chat";
 const Chat = () => {
-  const [chat, setChat] = useState(
-    "hskdjhfjksdhjfks hsdjkhfjksdh hfskjdhfjksdh fs jfhksjdhfjksdhf jksdhfksjd",
-  );
-  async function HandleSend(e:React.FormEvent<HTMLFormElement>) {
-       e.preventDefault();
-       const form = e.currentTarget
-       const formdata = new FormData(form);
-       const message = formdata.get("chat");
-       if(typeof message !== "string") return
-       setChat(message)
-       form.reset();
-}
+  const [chat, setChat] = useState("");
+  const [res, setRes] = useState("");
+  const [error , setError] = useState("");
+  const [loading , setLoading] = useState(false);
+
+  async function HandleSend(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const formdata = new FormData(form);
+    const message = formdata.get("chat");
+    if (typeof message !== "string") return;
+    setChat(message);
+    const reply = await sendMessageToGemini(message)
+    setRes(reply)
+    form.reset();
+  }
   return (
     <section className="min-h-screen w-full h-full flex">
       <div className="w-1/6 h-full min-h-screen border border-white bg-green-500"></div>
@@ -22,11 +26,12 @@ const Chat = () => {
           <div className="w-full flex justify-end overflow-auto">
             <p className="max-w-100 text-xl">{chat}</p>
           </div>
+          <div className="w-full flex overflow-auto">
+            <p className="max-w-100 text-xl">{res}</p>
+          </div>
         </div>
         <div className="px-20 flex bg-red-500 justify-center min-h-[20vh] items-center">
-          <form
-           onSubmit={HandleSend}
-          className="flex space-x-5 ">
+          <form onSubmit={HandleSend} className="flex space-x-5 ">
             <input
               placeholder="Chat With Us We Tell"
               autoComplete="off"
