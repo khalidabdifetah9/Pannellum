@@ -1,6 +1,10 @@
 "use server";
 
 import { GoogleGenAI } from "@google/genai";
+export interface chatmessage{
+  role:"user"|"model",
+  text:string
+}
 
 const ai = new GoogleGenAI({}); // Reads process.env.GEMINI_API_KEY on the server
 
