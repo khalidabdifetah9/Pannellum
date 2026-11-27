@@ -25,9 +25,6 @@ const Chat = () => {
       const err = e.message;
       console.log(e);
       setError(err);
-      setTimeout(() => {
-        setError("");
-      }, 2000);
     } finally {
       setLoading(false);
     }

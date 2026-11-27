@@ -8,22 +8,19 @@ import { useRouter } from "next/navigation";
 const links = [
   { name: "About", id: 0, ref: "/about" },
   { name: "Blog", id: 1, ref: "/blog" },
+  { name: "Post", id: 1, ref: "/post-blog" },
   { name: "Contacts", id: 2, ref: "/contacts" },
-  { name: "Dashboard", id: 3, ref: "/dashboard" },
-  { name: "Portfolio", id: 4, ref: "/portfolio" },
-  { name: "Pannellum", id: 4, ref: "/Pannellum" },
 ];
 const Nav = () => {
   const [Id, setId] = useState(null);
   const handelclick = (tati, e) => {
-    //  e.preventDefault();
     setId(tati);
   };
   const session = useSession();
   const route = useRouter();
   return (
     <>
-      <nav className="flex fixed left-0 top-0 z-100 px-60 bg-black w-full py-10 items-center justify-between text-[rgba(255,255,255,0.7)]">
+      <nav className="flex fixed left-0 top-0 z-100  bg-black w-full px-53 py-10 items-center justify-between text-[rgba(255,255,255,0.7)]">
         <Link className="font-semibold text-2xl" href={"/"}>
           lamamia
         </Link>

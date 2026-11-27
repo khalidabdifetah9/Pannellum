@@ -18,8 +18,8 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`min-h-full flex flex-col ${poppins.className}`}>
         <AuthProvider>
-          <div className="w-full mx-auto  max-w-470">
-            {/* <Nav /> */}
+          <div className="w-full mx-auto max-w-370">
+            <Nav />
             {children}
             </div>
         </AuthProvider>
