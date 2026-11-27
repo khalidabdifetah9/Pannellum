@@ -1,9 +1,11 @@
-import React from 'react'
-
+import React from "react";
+import PostB from "../../Component/Post/postb";
 const PostPage = () => {
   return (
-    <div>PostPage</div>
-  )
-}
+    <div>
+      <PostB />
+    </div>
+  );
+};
 
-export default PostPage
+export default PostPage;
