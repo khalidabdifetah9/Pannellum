@@ -15,6 +15,7 @@ const PostB = () => {
     const img = data.get("path").toString().trim();
     const des = data.get("des").toString().trim();
     setLoading(true);
+    formdata.reset();
     try {
       const res = await fetch("/api/postb", {
         method: "POST",
@@ -23,7 +24,6 @@ const PostB = () => {
         },
         body: JSON.stringify({ title, img, des }),
       });
-      formdata.reset();
       if (!res.ok) {
         throw new Error("unable to send");
       }
